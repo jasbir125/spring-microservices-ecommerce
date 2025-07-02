@@ -1,0 +1,7 @@
+/target/
+/.settings/
+/.classpath
+/.project
+.DS_Store
+README-2.md
+.idea/

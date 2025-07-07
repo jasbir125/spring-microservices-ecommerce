@@ -5,6 +5,8 @@ services:
     image: jasbir008/config-service:latest
     ports:
       - "8088:8088"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
   discovery-service:
     container_name: discovery-service.latest
     image: jasbir008/discovery-service:latest

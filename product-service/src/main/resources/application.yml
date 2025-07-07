@@ -6,6 +6,6 @@ spring:
 ---
 spring:
   application:
-    name: gateway-service
+    name: product-service
   config:
     import: "optional:configserver:http://localhost:8088"

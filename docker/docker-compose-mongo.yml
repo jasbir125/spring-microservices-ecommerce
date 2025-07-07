@@ -1,0 +1,20 @@
+
+version: '3.5'
+
+services:
+  product-mango-service-database:
+    image: mongo
+    container_name: product-service-mongo-database.local
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+      - mongodb-config:/data/configdb
+
+volumes:
+  mongodb-data:
+  mongodb-config:
+
+networks:
+  ecommerce-network:
+    name: ecommerce-app

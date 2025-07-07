@@ -1,0 +1,24 @@
+Adding product with review
+curl --location 'http://localhost:8191/api/v1/products' \
+--header 'Content-Type: application/json' \
+--data-raw ' {
+        "reference": "SBES@TBA1-10010JJ",
+        "name": "Bose SoundLink Revolve",
+        "description": "Portable Bluetooth speaker with 360-degree sound.",
+        "price": 199.99,
+        "brand": "Bose",
+        "code":"PROD-0001",
+        "color":"red",
+        "quantity":10,
+        "size": "Standard",
+        "categories": [
+            "Electronics",
+            "Speakers"
+        ],
+        "reviews": [
+            {
+                "comment": "Great sound quality in a small package.",
+                "stars": 5
+            }
+        ]
+    }'

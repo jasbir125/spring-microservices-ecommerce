@@ -1,4 +1,4 @@
-package com.myapp.discovery;
+package com.singh.ecommerceapp.discovery;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

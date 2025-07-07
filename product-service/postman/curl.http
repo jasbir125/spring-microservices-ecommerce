@@ -1,0 +1,48 @@
+curl --location 'http://localhost:8191/api/v1/products/byIds?productIds=6776d468b5ea753d2d26adf8%2C6776d46ab5ea753d2d26adf9%2C6776d46bb5ea753d2d26adfa'
+
+curl --location 'http://localhost:8191/api/v1/products?sku=EL-JB-8CB982' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json'
+
+curl --location --request PUT 'http://localhost:8191/api/v1/products/6776d46bb5ea753d2d26adfa' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Wireless Earbudsxxxxxx",
+    "description": "High-quality wireless earbuds with noise cancellation.",
+    "brand": "JBL-22"
+
+}'
+
+curl --location --request DELETE 'http://localhost:8191/api/v1/products/6776d468b5ea753d2d26adf8' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json'
+
+
+curl --location 'http://localhost:8191/api/v1/products?productId=6776d46cb5ea753d2d26adfb' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json'
+
+curl --location 'http://localhost:8191/api/v1/products' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Wireless Earbuds",
+    "description": "High-quality wireless earbuds with noise cancellation.",
+    "brand": "JBL",
+    "price": 500,
+    "currency":"INR",
+    "quantity":100,
+    "originalPrice": 500,
+    "discount": 30.0,
+    "color": "black",
+    "category": [
+        "Electronics",
+        "Speakers"
+    ],
+    "tags": [
+        "wireless",
+        "audio",
+        "earbuds"
+    ]
+}'

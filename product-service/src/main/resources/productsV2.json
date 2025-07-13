@@ -1,0 +1,222 @@
+[
+  {
+    "reference": "SBES@TBA1-10001",
+    "name": "Dell Inspiron 15 3000",
+    "description": "A powerful and stylish Dell laptop for everyday computing.",
+    "price": 20000,
+    "color": "blue",
+    "brand": "Dell",
+    "currency": "INR",
+    "size": "15-inch",
+    "category": [
+      "Electronics",
+      "Laptops"
+    ],
+    "reviews": [
+      {
+        "comment": "Great value for money!",
+        "stars": 4,
+        "created": "2023-09-10T10:00:00Z"
+      }
+    ],
+    "created": "2023-09-15T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10002",
+    "name": "Samsung Galaxy S21",
+    "description": "The latest smartphone from Samsung with cutting-edge features.",
+    "price": 25000,
+    "color": "blue",
+    "currency": "INR",
+    "brand": "Samsung",
+    "size": "6.2-inch",
+    "category": [
+      "Mobile",
+      "Smartphones"
+    ],
+    "reviews": [
+      {
+        "comment": "Excellent camera quality.",
+        "stars": 5,
+        "created": "2023-08-21T10:00:00Z"
+      }
+    ],
+    "created": "2023-08-20T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10003",
+    "name": "Nike Air Max 270",
+    "description": "Comfortable and stylish shoes for running and casual wear.",
+    "price": 70000,
+    "brand": "Nike",
+    "color": "blue",
+    "currency": "INR",
+    "size": "10",
+    "category": [
+      "Clothes",
+      "Footwear"
+    ],
+    "reviews": [
+      {
+        "comment": "Super comfortable for running!",
+        "stars": 5,
+        "created": "2023-07-11T10:00:00Z"
+      }
+    ],
+    "created": "2023-07-15T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10004",
+    "name": "Apple iPhone 13",
+    "description": "Apple’s latest smartphone with a stunning display and powerful performance.",
+    "price": 80000,
+    "color": "blue",
+    "brand": "Apple",
+    "size": "128GB",
+    "currency": "INR",
+    "category": [
+      "Mobile",
+      "Smartphones"
+    ],
+    "reviews": [
+      {
+        "comment": "A bit pricey, but worth it for the ecosystem.",
+        "stars": 4,
+        "created": "2023-07-22T10:00:00Z"
+      }
+    ],
+    "created": "2023-07-30T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10005",
+    "name": "Sony WH-1000XM4",
+    "description": "Premium wireless noise-canceling headphones from Sony.",
+    "price": 5000,
+    "brand": "Sony",
+    "color": "blue",
+    "currency": "INR",
+    "size": "Standard",
+    "category": [
+      "Electronics",
+      "Headphones"
+    ],
+    "reviews": [
+      {
+        "comment": "Best noise cancellation I've experienced.",
+        "stars": 5,
+        "created": "2023-08-05T10:00:00Z"
+      }
+    ],
+    "created": "2023-08-10T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10006",
+    "name": "LG 55-inch OLED TV",
+    "description": "Stunning picture quality with deep blacks and vibrant colors.",
+    "price": 16000,
+    "brand": "LG",
+    "size": "55-inch",
+    "currency": "INR",
+    "color": "blue",
+    "category": [
+      "Electronics",
+      "Television"
+    ],
+    "reviews": [
+      {
+        "comment": "Perfect for movie nights.",
+        "stars": 5,
+        "created": "2023-06-30T10:00:00Z"
+      }
+    ],
+    "created": "2023-07-01T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10007",
+    "name": "Adidas Ultraboost",
+    "description": "High-performance running shoes with responsive cushioning.",
+    "price": 44000,
+    "brand": "Adidas",
+    "currency": "INR",
+    "color": "white",
+    "size": "11",
+    "category": [
+      "Clothes",
+      "Footwear"
+    ],
+    "reviews": [
+      {
+        "comment": "Love the comfort and support.",
+        "stars": 5,
+        "created": "2023-05-14T10:00:00Z"
+      }
+    ],
+    "created": "2023-05-20T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10008",
+    "name": "OnePlus 9 Pro",
+    "description": "Flagship smartphone with a premium design and top-tier performance.",
+    "price": 40000,
+    "brand": "OnePlus",
+    "currency": "INR",
+    "color": "blue",
+    "size": "256BG",
+    "category": [
+      "Mobile",
+      "Smartphones"
+    ],
+    "reviews": [
+      {
+        "comment": "Fast and responsive, great for gaming.",
+        "stars": 4,
+        "created": "2023-09-05T10:00:00Z"
+      }
+    ],
+    "created": "2023-09-10T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10009",
+    "name": "Levi's 501 Original Fit Jeans",
+    "description": "Classic straight-leg jeans made with durable fabric.",
+    "price": 2000,
+    "color": "blue",
+    "currency": "INR",
+    "brand": "Levi's",
+    "size": "32",
+    "category": [
+      "Clothes",
+      "Jeans"
+    ],
+    "reviews": [
+      {
+        "comment": "A timeless style that never goes out of fashion.",
+        "stars": 5,
+        "created": "2023-07-22T10:00:00Z"
+      }
+    ],
+    "created": "2023-07-25T10:00:00Z"
+  },
+  {
+    "reference": "SBES@TBA1-10010",
+    "name": "Bose SoundLink Revolve",
+    "description": "Portable Bluetooth speaker with 360-degree sound.",
+    "price": 12000,
+    "brand": "Bose",
+    "color": "blue",
+    "currency": "INR",
+    "size": "Standard",
+    "category": [
+      "Electronics",
+      "Speakers"
+    ],
+    "reviews": [
+      {
+        "comment": "Great sound quality in a small package.",
+        "stars": 5,
+        "created": "2023-04-10T10:00:00Z"
+      }
+    ],
+    "created": "2023-04-15T10:00:00Z"
+  }
+]

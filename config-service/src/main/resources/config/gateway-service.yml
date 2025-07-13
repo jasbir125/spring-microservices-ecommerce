@@ -17,22 +17,24 @@ spring:
       enabled: always
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: product-service
-          uri: lb://product-service
-          predicates:
-            - Path=/product/**
-          filters:
-            - RewritePath=/product/(?<path>.*), /$\{path}
-        - id: openapi
-          uri: http://localhost:${server.port}
-          predicates:
-            - Path=/v3/api-docs/**
-          filters:
-            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+          routes:
+            - id: product-service
+              uri: lb://product-service
+              predicates:
+                - Path=/product/**
+              filters:
+                - RewritePath=/product/(?<path>.*), /$\{path}
+            - id: openapi
+              uri: http://localhost:${server.port}
+              predicates:
+                - Path=/v3/api-docs/**
+              filters:
+                - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
 
 springdoc:
   cache:

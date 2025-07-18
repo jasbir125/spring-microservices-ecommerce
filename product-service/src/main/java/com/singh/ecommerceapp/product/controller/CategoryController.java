@@ -1,7 +1,6 @@
 package com.singh.ecommerceapp.product.controller;
 
 import com.singh.ecommerceapp.product.entity.Category;
-import com.singh.ecommerceapp.product.mapper.ProductMapper;
 import com.singh.ecommerceapp.product.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

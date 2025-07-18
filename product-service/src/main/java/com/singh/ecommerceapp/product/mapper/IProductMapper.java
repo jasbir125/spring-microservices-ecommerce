@@ -12,11 +12,12 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Mapper(
         componentModel = "spring",
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
 )
-public interface ProductMapper {
+public interface IProductMapper {
 
     @Mapping(target = "category", expression = "java(mapCategories(createProductRequest.getCategory()))")
     @Mapping(target = "tags", expression = "java(mapTags(createProductRequest.getTags()))")

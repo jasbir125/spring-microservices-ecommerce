@@ -1,7 +1,7 @@
 package com.singh.ecommerceapp.product.service;
 
 import com.singh.ecommerceapp.product.exception.ProductNotFoundException;
-import com.singh.ecommerceapp.product.mapper.ProductMapper;
+import com.singh.ecommerceapp.product.mapper.IProductMapper;
 import com.singh.ecommerceapp.product.model.dto.product.UpdateProductRequest;
 import com.singh.ecommerceapp.product.model.dto.product.ProductResponse;
 import com.singh.ecommerceapp.product.model.dto.product.CreateProductRequest;
@@ -10,7 +10,6 @@ import com.singh.ecommerceapp.product.repository.ProductRepository;
 import com.singh.ecommerceapp.product.util.NullAwareBeanUtils;
 import com.singh.ecommerceapp.product.util.SkuGenerator;
 import com.singh.ecommerceapp.product.util.SlugGenerator;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,14 +18,20 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final ProductMapper productMapper;
     private final SellerService sellerService;
     private final SkuGenerator skuGenerator;
+    private final IProductMapper productMapper;
+
+    public ProductService(ProductRepository productRepository, SellerService sellerService, SkuGenerator skuGenerator, IProductMapper productMapper) {
+        this.productRepository = productRepository;
+        this.sellerService = sellerService;
+        this.skuGenerator = skuGenerator;
+        this.productMapper = productMapper;
+    }
 
     public void deleteProduct(UUID productId) {
         log.info("ProductService :: deleteProduct :: Attempting to delete product with ID: {}", productId);

@@ -2,7 +2,7 @@
 
 set -e  # Exit script on error
 
-SERVICE_NAME="gateway-service"
+SERVICE_NAME="product-service"
 CHART_PATH="../helm-chart/gateway-service"
 
 echo "🚀 Deploying $SERVICE_NAME using Helm..."

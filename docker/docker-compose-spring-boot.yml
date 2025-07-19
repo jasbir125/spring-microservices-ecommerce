@@ -1,21 +1,28 @@
-#version: "3.9"
+version: "3.9"
+
 services:
   config-service:
     container_name: config-service.latest
     image: jasbir008/config-service:latest
     ports:
       - "8088:8088"
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - ecommerce-app
+    restart: on-failure
+
   discovery-service:
     container_name: discovery-service.latest
     image: jasbir008/discovery-service:latest
     ports:
       - "8061:8061"
-    healthcheck:
-      test: curl --fail http://localhost:8061/eureka/v2/apps || exit 1
     environment:
       SPRING_PROFILES_ACTIVE: docker
+    healthcheck:
+      test: curl --fail http://localhost:8061/actuator/health || exit 1
+    networks:
+      - ecommerce-app
+    restart: on-failure
+
   gateway-service:
     container_name: gateway-service.latest
     image: jasbir008/gateway-service:latest
@@ -26,10 +33,24 @@ services:
         condition: service_healthy
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    links:
-      - config-service
-      - discovery-service
+    networks:
+      - ecommerce-app
+    restart: on-failure
+
+  product-service:
+    container_name: product-service.latest
+    image: jasbir008/product-service:latest
+    ports:
+      - "8191:8191"
+    depends_on:
+      discovery-service:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - ecommerce-app
+    restart: on-failure
 
 networks:
-  ecommerce-network:
-    name: ecommerce-app
+  ecommerce-app:
+    driver: bridge

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICE_NAME="gateway-service"
+SERVICE_NAME="product-service"
 IMAGE_TAG="jasbir008/${SERVICE_NAME}:latest"
 
 echo ""

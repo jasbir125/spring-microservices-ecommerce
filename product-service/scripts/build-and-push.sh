@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set variables
-IMAGE_NAME="jasbir008/gateway-service"
+IMAGE_NAME="jasbir008/product-service"
 TAG="latest"
 cd ..
 # Step 1: Clean and package the Spring Boot app (skip tests for faster build)

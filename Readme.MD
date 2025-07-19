@@ -44,10 +44,12 @@ A scalable and modular **e-commerce platform** built using **Spring Boot** and a
 - **Caching** -Local caching (Caffeine/EhCache) and distributed caching (Redis) for performance optimization.
 - **Listen to yourself design pattern**
 
-
+## Task Implemented 
 ## Helm deployment
 
 ## Docker deployment
+
+chmod +x bootstrap.sh
 
 
 

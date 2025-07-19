@@ -23,6 +23,7 @@ SERVICES=(
   config-service
   discovery-service
   gateway-service
+  product-service
 )
 
 for SERVICE in "${SERVICES[@]}"; do

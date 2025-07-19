@@ -7,7 +7,7 @@ if [ -z "$BASH_VERSION" ]; then
 fi
 
 # Define services
-services=("config-service:8088" "discovery-service:8061" "gateway-service:8060")
+services=("config-service:8088" "discovery-service:8061" "gateway-service:8060" "product-service:8191")
 
 echo "🚀 Deploying temporary curl pod..."
 kubectl run curlpod \

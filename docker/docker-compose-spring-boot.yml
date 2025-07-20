@@ -6,8 +6,11 @@ services:
     image: jasbir008/config-service:latest
     ports:
       - "8088:8088"
-    networks:
-      - ecommerce-app
+    healthcheck:
+      test: curl --fail http://localhost:8088/discovery/docker  || exit 1
+      interval: 5s
+      timeout: 2s
+      retries: 3
     restart: on-failure
 
   discovery-service:
@@ -15,26 +18,34 @@ services:
     image: jasbir008/discovery-service:latest
     ports:
       - "8061:8061"
+    depends_on:
+      config-service:
+        condition: service_healthy
+    links:
+      - config-service
+    healthcheck:
+      test: curl --fail http://localhost:8061/eureka/v2/apps || exit 1
+      interval: 4s
+      timeout: 2s
+      retries: 3
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    healthcheck:
-      test: curl --fail http://localhost:8061/actuator/health || exit 1
-    networks:
-      - ecommerce-app
-    restart: on-failure
 
   gateway-service:
     container_name: gateway-service.latest
     image: jasbir008/gateway-service:latest
     ports:
       - "8060:8060"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
     depends_on:
       discovery-service:
         condition: service_healthy
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    networks:
-      - ecommerce-app
+      config-service:
+        condition: service_started
+    links:
+      - config-service
+      - discovery-service
     restart: on-failure
 
   product-service:
@@ -42,15 +53,11 @@ services:
     image: jasbir008/product-service:latest
     ports:
       - "8191:8191"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
     depends_on:
       discovery-service:
         condition: service_healthy
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    networks:
-      - ecommerce-app
+      config-service:
+        condition: service_started
     restart: on-failure
-
-networks:
-  ecommerce-app:
-    driver: bridge

@@ -1,4 +1,4 @@
-package com.singh.ecommerceapp.config;
+package com.singh.ecommerceapp.configuration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

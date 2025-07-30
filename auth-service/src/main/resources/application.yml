@@ -1,0 +1,63 @@
+server:
+    port: 8090
+spring:
+  application:
+    name: auth-service
+  main:
+    log-startup-info: true
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_CLIENT_SECRET}
+            scope: read:user, user:email
+          google:
+            clientId: ${GOOGLE_CLIENT_ID}
+            clientSecret: ${GOOGLE_CLIENT_SECRET}
+            scope: profile, email
+          facebook:
+            client-id: ${FACEBOOK_CLIENT_ID}
+            client-secret: ${FACEBOOK_CLIENT_SECRET}
+            scope: public_profile,email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          facebook:
+            authorization-uri: https://www.facebook.com/v16.0/dialog/oauth
+            token-uri: https://graph.facebook.com/v16.0/oauth/access_token
+            user-info-uri: https://graph.facebook.com/me?fields=id,name,email,picture
+            user-name-attribute: id
+app:
+  jwt:
+    # Signing key for HS512 algorithm
+    secret: nnJ0Nzg7dLku/pVk2zB2J28/R4GxmorO2gZdAGAJAyiwH+YXU+PG+8uWOm4jO/aeAWXrYqp+Q86ToqDYnym8BQ==
+    expiration:
+      minutes: 10
+    type: JWT
+    issuer: order-api
+    audience: order-app
+  oauth2:
+    redirectUri: http://localhost:3000/oauth2/redirect
+  cors:
+    allowed-origins: http://localhost:3000
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: INFO
+    org.springframework.boot.context.config: DEBUG
+    org.springframework.boot.context.properties: DEBUG
+    web: DEBUG
+
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss}){blue} %clr(${LOG_LEVEL_PATTERN:-%5p}) %m%n"
+
+

@@ -1,5 +1,15 @@
 server:
-    port: 8090
+    port: 8443
+    ssl:
+      enabled: true
+      key-store: classpath:certs/server/keystore.p12
+      key-store-password: password
+      key-store-type: PKCS12
+      key-alias: server
+      trust-store: classpath:certs/server/truststore.p12
+      trust-store-password: password
+      trust-store-type: PKCS12
+      client-auth: need
 spring:
   application:
     name: auth-service
@@ -7,7 +17,7 @@ spring:
     log-startup-info: true
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}

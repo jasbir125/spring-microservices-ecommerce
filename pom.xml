@@ -33,6 +33,7 @@
         <module>gateway-service</module>
         <module>product-service</module>
         <module>auth-service</module>
+        <module>data-import-service</module>
     </modules>
 
     <dependencyManagement>

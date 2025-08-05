@@ -1,5 +1,6 @@
 package com.singh.ecommerceapp.controller;
 
+import com.singh.ecommerceapp.aspects.LogExecutionTime;
 import com.singh.ecommerceapp.controller.dto.AuthResponse;
 import com.singh.ecommerceapp.controller.dto.LoginRequest;
 import com.singh.ecommerceapp.controller.dto.SignUpRequest;
@@ -30,6 +31,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
 
+    @LogExecutionTime
     @PostMapping("/authenticate")
     public AuthResponse login(@Valid @RequestBody LoginRequest loginRequest) {
         log.info("LoginRequest : {}", loginRequest);
@@ -38,6 +40,7 @@ public class AuthController {
         return new AuthResponse(token);
     }
 
+    @LogExecutionTime
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
     public AuthResponse signUp(@Valid @RequestBody SignUpRequest signUpRequest) {

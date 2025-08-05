@@ -61,11 +61,11 @@ app:
 
 logging:
   level:
-    org.springframework.security: DEBUG
+    org.springframework.security: INFO
     org.hibernate.SQL: INFO
-    org.springframework.boot.context.config: DEBUG
+    org.springframework.boot.context.config: INFO
     org.springframework.boot.context.properties: DEBUG
-    web: DEBUG
+    web: INFO
 
   pattern:
     console: "%clr(%d{yyyy-MM-dd HH:mm:ss}){blue} %clr(${LOG_LEVEL_PATTERN:-%5p}) %m%n"

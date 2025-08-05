@@ -1,5 +1,6 @@
 package com.singh.ecommerceapp.controller;
 
+import com.singh.ecommerceapp.aspects.LogExecutionTime;
 import com.singh.ecommerceapp.controller.dto.UserDto;
 import com.singh.ecommerceapp.security.CustomUserDetails;
 import com.singh.ecommerceapp.entity.User;
@@ -23,6 +24,7 @@ public class UserController {
 
     private final UserService userService;
 
+    @LogExecutionTime
     @Operation(security = {@SecurityRequirement(name = BEARER_KEY_SECURITY_SCHEME)})
     @GetMapping("/me")
     public UserDto getCurrentUser(@AuthenticationPrincipal CustomUserDetails currentUser) {

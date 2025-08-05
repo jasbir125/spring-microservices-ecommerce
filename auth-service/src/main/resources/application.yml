@@ -1,7 +1,7 @@
 server:
-    port: 8443
+    port: 8080
     ssl:
-      enabled: true
+      enabled: false
       key-store: classpath:certs/server/keystore.p12
       key-store-password: password
       key-store-type: PKCS12
@@ -62,7 +62,7 @@ app:
 logging:
   level:
     org.springframework.security: DEBUG
-    org.hibernate.SQL: INFO
+    org.hibernate.SQL: DEBUG
     org.springframework.boot.context.config: DEBUG
     org.springframework.boot.context.properties: DEBUG
     web: DEBUG

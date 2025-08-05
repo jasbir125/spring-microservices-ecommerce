@@ -6,3 +6,7 @@
 README-2.md
 .idea/
 product-service/target/
+auth-service/target/
+common/target/
+.env
+auth-service/.env

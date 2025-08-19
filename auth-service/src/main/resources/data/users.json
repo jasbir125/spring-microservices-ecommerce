@@ -1,0 +1,28 @@
+[
+  {
+    "firstName": "Jasbir",
+    "lastName": "Singh",
+    "password": "password",
+    "username": "jasbir008",
+    "email": "jasbir008@gmail.com",
+    "gender": "MALE",
+    "OAuth2Provider": "LOCAL",
+    "value": "1",
+    "role": {
+      "name": "ROLE_USER"
+    }
+  },
+  {
+    "firstName": "Raj",
+    "lastName": "Singh",
+    "username": "raj008",
+    "gender": "MALE",
+    "password": "password",
+    "email": "raj008@gmail.com",
+    "OAuth2Provider": "LOCAL",
+    "value": "3",
+    "role": {
+      "name": "ROLE_USER"
+    }
+  }
+]

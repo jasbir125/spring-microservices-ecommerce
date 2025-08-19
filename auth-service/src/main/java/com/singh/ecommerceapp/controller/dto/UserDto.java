@@ -1,9 +1,10 @@
 package com.singh.ecommerceapp.controller.dto;
 
 
+import com.singh.ecommerceapp.entity.Role;
 import com.singh.ecommerceapp.entity.User;
 
-public record UserDto(Long id, String username, String name, String email, String role) {
+public record UserDto(Long id, String username, String name, String email, Role role) {
 
     public static UserDto from(User user) {
         return new UserDto(
@@ -15,3 +16,4 @@ public record UserDto(Long id, String username, String name, String email, Strin
         );
     }
 }
+

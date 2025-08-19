@@ -1,5 +1,8 @@
 package com.singh.ecommerceapp.security.oauth2;
 
+import com.singh.ecommerceapp.entity.Role;
+import com.singh.ecommerceapp.entity.RoleEnum;
+import com.singh.ecommerceapp.repository.UserRepository;
 import com.singh.ecommerceapp.security.CustomUserDetails;
 import com.singh.ecommerceapp.security.SecurityConfig;
 import com.singh.ecommerceapp.entity.User;
@@ -17,10 +20,12 @@ import java.util.Optional;
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     private final UserService userService;
+    private final UserRepository userRepository;
     private final List<OAuth2UserInfoExtractor> oAuth2UserInfoExtractors;
 
-    public CustomOAuth2UserService(UserService userService, List<OAuth2UserInfoExtractor> oAuth2UserInfoExtractors) {
+    public CustomOAuth2UserService(UserService userService, UserRepository userRepository, List<OAuth2UserInfoExtractor> oAuth2UserInfoExtractors) {
         this.userService = userService;
+        this.userRepository = userRepository;
         this.oAuth2UserInfoExtractors = oAuth2UserInfoExtractors;
     }
 
@@ -51,12 +56,16 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             user.setEmail(customUserDetails.getEmail());
             user.setImageUrl(customUserDetails.getAvatarUrl());
             user.setProvider(customUserDetails.getProvider());
-            user.setRole(SecurityConfig.USER);
+            Role role = new Role();
+            role.setName(RoleEnum.ROLE_USER);
+            user.setRole(role);
+
         } else {
             user = userOptional.get();
             user.setEmail(customUserDetails.getEmail());
             user.setImageUrl(customUserDetails.getAvatarUrl());
         }
-        return userService.saveUser(user);
+        //return userService.saveUser(user);
+        return  userRepository.save(user);
     }
 }

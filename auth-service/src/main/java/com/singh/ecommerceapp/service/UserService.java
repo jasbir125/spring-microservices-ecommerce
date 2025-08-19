@@ -1,5 +1,6 @@
 package com.singh.ecommerceapp.service;
 
+import com.singh.ecommerceapp.controller.dto.SignUpRequest;
 import com.singh.ecommerceapp.entity.User;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface UserService {
 
     User validateAndGetUserByUsername(String username);
 
-    User saveUser(User user);
+    User saveUser(SignUpRequest signUpRequest);
 
     void deleteUser(User user);
 }

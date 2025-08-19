@@ -17,7 +17,7 @@ spring:
     log-startup-info: true
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -50,7 +50,7 @@ app:
     # Signing key for HS512 algorithm
     secret: nnJ0Nzg7dLku/pVk2zB2J28/R4GxmorO2gZdAGAJAyiwH+YXU+PG+8uWOm4jO/aeAWXrYqp+Q86ToqDYnym8BQ==
     expiration:
-      minutes: 10
+      minutes: 1000
     type: JWT
     issuer: order-api
     audience: order-app
@@ -61,13 +61,15 @@ app:
 
 logging:
   level:
-    org.springframework.security: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.springframework.boot.context.config: DEBUG
-    org.springframework.boot.context.properties: DEBUG
-    web: DEBUG
+    org.springframework.security: INFO
+    org.hibernate.SQL: INFO
+    org.springframework.boot.context.config: INFO
+    org.springframework.boot.context.properties: INFO
+    web: INFO
 
   pattern:
     console: "%clr(%d{yyyy-MM-dd HH:mm:ss}){blue} %clr(${LOG_LEVEL_PATTERN:-%5p}) %m%n"
+
+
 
 

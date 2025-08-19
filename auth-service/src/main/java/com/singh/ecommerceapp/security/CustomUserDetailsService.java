@@ -1,5 +1,6 @@
 package com.singh.ecommerceapp.security;
 
+import com.singh.ecommerceapp.entity.Role;
 import com.singh.ecommerceapp.entity.User;
 import com.singh.ecommerceapp.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -9,8 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -22,7 +22,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) {
         User user = userService.getUserByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("Username %s not found", username)));
-        List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(user.getRole()));
+
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        Role role = user.getRole();
+        authorities.add(new SimpleGrantedAuthority(role.getName().toString()));
+        user.allPermissions().forEach(permission -> authorities.add(new SimpleGrantedAuthority(permission.getName())));
         return mapUserToCustomUserDetails(user, authorities);
     }
 

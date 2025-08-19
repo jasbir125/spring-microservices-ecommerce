@@ -2,8 +2,12 @@ package com.singh.ecommerceapp.entity;
 
 import com.singh.ecommerceapp.security.oauth2.OAuth2Provider;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
+import lombok.experimental.Accessors;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -12,6 +16,10 @@ import lombok.NoArgsConstructor;
         @UniqueConstraint(columnNames = "username"),
         @UniqueConstraint(columnNames = "email")
 })
+@ToString
+@Accessors(chain = true)
+@Builder
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -19,25 +27,26 @@ public class User {
     private Long id;
 
     private String username;
+    private String firstName;
+    private String lastName;
     private String password;
     private String name;
     private String email;
-    private String role;
     private String imageUrl;
-
     @Enumerated(EnumType.STRING)
     private OAuth2Provider provider;
-
     private String providerId;
 
-    public User(String username, String password, String name, String email, String role, String imageUrl, OAuth2Provider provider, String providerId) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.email = email;
-        this.role = role;
-        this.imageUrl = imageUrl;
-        this.provider = provider;
-        this.providerId = providerId;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+    @Version
+
+    @Column(name = "VERSION")
+    private Long version;  // Version field for optimistic locking
+
+    public Set<Permission> allPermissions() {
+        Set<Permission> userRolePermissions = this.role.getPermissions();
+        return new HashSet<>(userRolePermissions);
     }
 }

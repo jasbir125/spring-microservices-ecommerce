@@ -1,0 +1,22 @@
+[
+  {
+    "name": "ROLE_ADMIN",
+    "description": "Default Admin role",
+    "default": true
+  },
+  {
+    "name": "ROLE_SUPER_ADMIN",
+    "description": "Default Super Admin role",
+    "default": true
+  },
+  {
+    "name": "ROLE_SELLER",
+    "description": "Default Seller role",
+    "default": true
+  },
+  {
+    "name": "ROLE_USER",
+    "description": "Default User role",
+    "default": true
+  }
+]
